@@ -1,0 +1,13 @@
+name = "AxialAM"
+uuid = "5db10ed6-3e55-48a8-8561-471d360f7e15"
+authors = ["Fernando Peñaranda"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.9"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

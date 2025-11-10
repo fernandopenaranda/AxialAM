@@ -1,0 +1,3 @@
+[deps]
+AxialAM = "5db10ed6-3e55-48a8-8561-471d360f7e15"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
