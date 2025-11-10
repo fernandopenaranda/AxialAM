@@ -4,10 +4,10 @@ k-space model of an axial i-wave orbital AM
 σ = spin
 =#
 function hamiltonian(k; t1 = 1, t4 = 0.1, N = 2, a0 = 1, neel = [1,1,1])
-    a1, a2, a3 = lattice_vectors(a0)
-    ns = first_neighbours(a1, a2, a3)
-    n4as = as_fourth_neighbours(a1, a2, a3)
-    n4bs = bs_fourth_neighbours(a1, a2, a3)
+    a1, a2 = lattice_vectors(a0)
+    ns = first_neighbours(a1, a2, rot120(a2))
+    n4as = as_fourth_neighbours(a1, a2, rot120(a2))
+    n4bs = bs_fourth_neighbours(a1, a2, rot120(a2))
 
     h = zeros(ComplexF64, 4, 4)
     h[1:2,1:2]   .+= 2t4 * (sum([cos(k'* n4as[i]) - cos(k'* n4bs[i]) for i in 1:length(n4as)])) .* τx
@@ -23,8 +23,10 @@ as_fourth_neighbours(a1, a2, a3) = 2a1-a2, 2a2-a3, 2a3-a1, -2a1+a2, -2a2+a3, -2a
 bs_fourth_neighbours(a1, a2, a3) = 2a1-a3, 2a2-a1, 2a3-a2, -2a1+a3, -2a2+a1, -2a3+a2
 
 function lattice_vectors(a0)
-    a1 = a0 .* [1,0]
+    a1 = a0 .* [1.0,0]
     a2 = a0 .* [-1/2, √3/2]
-    a3 = a0 .* [-1/2, -√3/2]
-    return a1, a2, a3
+    return a1, a2
 end
+
+rot120(v) = [cos(2π/3) -sin(2π/3); sin(2π/3) cos(2π/3)] * v
+
