@@ -1,8 +1,6 @@
 #= 
     TB model for the i-wave orbital axial altermagnet on a triangular lattice
 =#
-
-
 """
 4 orbitals, inner is f orbital index 1, 2, outer is spin up down.
 """
@@ -57,7 +55,6 @@ end
 t4 picks a negative sign in one the two sets of 4th neighbors that are related by C6
 """
 function t4_sign(r, v) 
-    println(2 .* r)
     return ifelse(any(norm(v - rot(θ, 2 .* r)) < 1e-8 for θ in 0:π/3:2π-π/3) == true, 1, -1)
 end
 
