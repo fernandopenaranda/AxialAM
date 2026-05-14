@@ -58,5 +58,5 @@ function t4_sign(r, v)
     return ifelse(any(norm(v - rot(θ, 2 .* r)) < 1e-8 for θ in 0:π/3:2π-π/3) == true, 1, -1)
 end
 
-rot(θ, v) = [cos(θ) sin(θ); -sin(θ) cos(θ)] * v
+
 
