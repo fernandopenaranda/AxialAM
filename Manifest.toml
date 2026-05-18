@@ -2,7 +2,7 @@
 
 julia_version = "1.9.3"
 manifest_format = "2.0"
-project_hash = "a84ee6815a71d507e54aff354900b3733a5e3a69"
+project_hash = "d1c4282728d4af1a37a1155c2f73846bc4edd131"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -1741,12 +1741,6 @@ weakdeps = ["ChainRulesCore", "InverseFunctions"]
     StatsFunsChainRulesCoreExt = "ChainRulesCore"
     StatsFunsInverseFunctionsExt = "InverseFunctions"
 
-[[deps.StringDistances]]
-deps = ["Distances", "StatsAPI"]
-git-tree-sha1 = "5b2ca70b099f91e54d98064d5caf5cc9b541ad06"
-uuid = "88034a9c-02f8-509d-84a9-84ec65e18404"
-version = "0.11.3"
-
 [[deps.StringManipulation]]
 deps = ["PrecompileTools"]
 git-tree-sha1 = "a04cabe79c5f01f4d723cc6704070ada0b9d46d5"
@@ -1797,14 +1791,6 @@ uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
 deps = ["Artifacts", "Libdl", "Pkg", "libblastrampoline_jll"]
 uuid = "bea87d4a-7f5b-5778-9afe-8cc45184846c"
 version = "5.10.1+6"
-
-[[deps.SymScan]]
-deps = ["Brillouin", "Crystalline", "LinearAlgebra", "StringDistances"]
-git-tree-sha1 = "e1401d7b8f4627100778a2208054fddefa66baf2"
-repo-rev = "main"
-repo-url = "https://github.com/fernandopenaranda/SymScan.jl"
-uuid = "4bc7581b-18d6-4347-acfd-0557fa3a92d1"
-version = "1.0.0-DEV"
 
 [[deps.TOML]]
 deps = ["Dates"]
