@@ -10,6 +10,7 @@ module AxialAM
     using PhysicalConstants
     using PhysicalConstants.CODATA2018
     using Optics_in_the_length_gauge
+    using Serialization
 
     const s0 = SA[1 0; 0 1]
     const σ0 = SA[1 0; 0 1]
