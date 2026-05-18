@@ -87,19 +87,18 @@ function create_bashfile(divisions)
     which_mm=${12}
     integration_method=${13}
     a0=${14}
-    mu=${15}
-    t1=${16} 
-    t2=${17}
-    t4=${18} 
-    tperp=${19} 
-    Deltasz=${20}
-    Deltatauz=${21} 
-    neel1=${22} 
-    neel2=${23} 
-    neel3=${24} 
-    mumin=${25}
-    mumax=${26}
-    mupoints=${27}
+    t1=${15} 
+    t2=${16}
+    t4=${17} 
+    tperp=${18} 
+    Deltasz=${19}
+    Deltatauz=${20} 
+    neel1=${21} 
+    neel2=${22} 
+    neel3=${23} 
+    mumin=${24}
+    mumax=${25}
+    mupoints=${26}
     
     echo "My SLURM_ARRAY_JOB_ID is $SLURM_ARRAY_JOB_ID."
     echo "My SLURM_ARRAY_TASK_ID is $SLURM_ARRAY_TASK_ID"
@@ -110,7 +109,7 @@ function create_bashfile(divisions)
     $dirj $dirE $dirB $T $evals \
     $omega_switch $ps_switch $ps_orbital_switch $qm_switch $fermi_surface \
     $epsilon $which_mm $integration_method \
-    $a0 $mu $t1 $t2 $t4 $tperp $Deltasz $Deltatauz $neel1 $neel2 $neel3 \
+    $a0 $t1 $t2 $t4 $tperp $Deltasz $Deltatauz $neel1 $neel2 $neel3 \
     $mumin $mumax $mupoints"
     
     if [ "${SLURM_ARRAY_TASK_ID:-0}" -eq 1 ]; then

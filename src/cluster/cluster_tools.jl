@@ -9,7 +9,7 @@ function slurm_conductivities(; dirj = :x, dirE = :y, dirB = :x, T = 5, evals = 
         $dirj $dirE $dirB $T $evals \
         $omega_switch $ps_switch $ps_orbital_switch $qm_switch $fermi_surface \
         $epsilon $which_mm $integration_method \
-        $a0 $mu $t1 $t2 $t4 $tperp $Deltasz $Deltatauz $(neel[1]) $(neel[2]) $(neel[3]) \
+        $a0 $t1 $t2 $t4 $tperp $Deltasz $Deltatauz $(neel[1]) $(neel[2]) $(neel[3]) \
         $mumin $mumax $mupoints`
     dryrun && return cmd
     run(cmd)
