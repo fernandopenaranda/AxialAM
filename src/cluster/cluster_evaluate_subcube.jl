@@ -44,7 +44,7 @@ botbounds = [my_subcube[1][1], my_subcube[2][1], my_subcube[3][1]]
 topbounds = [my_subcube[1][2], my_subcube[2][2], my_subcube[3][2]]
 
 p = AM_presets_3d(am_presets_3d() , a0 =a0,  t1 = t1, t4 = t4, t2 = t2, 
-    tperp = tperp, Δsz = Deltasz, Δtz = Deltatz, neel = [neel1, neel2, neel3])
+    tperp = tperp, Δsz = Deltasz, Δtz = Deltatauz, neel = [neel1, neel2, neel3])
 
 keyws = (
     dirj = dirj,
