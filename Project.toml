@@ -4,8 +4,6 @@ authors = ["Fernando Peñaranda"]
 version = "1.0.0-DEV"
 
 [deps]
-BZpaths = "f8cfb5e1-ca40-4b8f-9b88-500575390b6d"
-Brillouin = "23470ee3-d0df-4052-8b1a-8cbd6363e7f0"
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 Crystalline = "ae5e2be0-a263-11e9-351e-f94dad1eb351"
 FilePathsBase = "48062228-2e41-5def-b9a4-89aafe57970f"

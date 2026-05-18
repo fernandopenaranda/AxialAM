@@ -4,8 +4,8 @@ module AxialAM
     using CairoMakie
     # using SymScan
     using Revise, Parameters
-    using BZpaths
-    using Brillouin
+    # using BZpaths
+    # using Brillouin
     using Crystalline
     using PhysicalConstants
     using PhysicalConstants.CODATA2018
