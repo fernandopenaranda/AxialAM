@@ -1,3 +1,5 @@
 /paper
+/notebooks
+/slides
 *.ipynb
 Axial_AM_results.key

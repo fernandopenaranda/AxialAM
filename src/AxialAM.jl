@@ -36,5 +36,5 @@ module AxialAM
     export AM_presets_3d, am_presets_3d, k_hamiltonian_3d, dh_k_3d, ddh_k_3d, sigma_abc_wrapper_3d
     export iwave_bands_3d, k_mesh_evals_3d, quantum_sigma_abc_wrapper_3d
     export iwave_Fijcuts, custom_fig_iwave_Fijcuts
-    export slurm_conductivities,
+    export slurm_conductivities, processing
 end
