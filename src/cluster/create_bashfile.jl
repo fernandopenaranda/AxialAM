@@ -32,7 +32,7 @@ it runs coincide with the number of divisions of the intergration BZ cube
 This .sh file will call to `julia_script` with the preset directives.
 """
 function create_bashfile(divisions)
-    julia_script = dirname(pathof(Field_Induced_Hall_Effect)) * "/cluster/cluster_evaluate_subcube.jl"  # script each array job runs
+    julia_script = dirname(pathof(AxialAM)) * "/cluster/cluster_evaluate_subcube.jl"  # script each array job runs
     subcubes_file = pwd() * "/subcubes.jls"        # File that stores the domain integration partitions
     output_script = pwd() * "/submit_array.sh"     # SLURM submission script
 
