@@ -5,6 +5,7 @@ function slurm_conductivities(; dirj = :x, dirE = :y, dirB = :x, T = 5, evals = 
     ps_switch = true, ps_orbital_switch = true, qm_switch = true, fermi_surface = true, epsilon = 1e-5, which_mm = :orbital, integration_method = :montecarlo,
     a0 = 1.0, t1 = 1.0, t2 = 1.0, t4 = 1.0, tperp = 1.0, Deltasz = 1.0, Deltatauz = 1.0, neel= [0,0,1.0], mumin = -3, mumax = 3, mupoints = 1, dryrun=false)
     script = pwd() * "/submit_array.sh"
+    println(mupoints)
     cmd = `sbatch --wait $script \
         $dirj $dirE $dirB $T $evals \
         $omega_switch $ps_switch $ps_orbital_switch $qm_switch $fermi_surface \
@@ -34,25 +35,29 @@ function find_folder(target::AbstractString)
     return nothing
 end
 
-processingprocessing(PID::Number) = processing(string(PID))
+processing(PID::Number) = processing(string(PID))
 function processing(PID::String)
     destination =  homedir() * "/Projects/AxialAM/" * PID 
     calcfile = destination * "_merged_calculation.jld"
     presfile = destination * "_merged_presets.jld"
-    pid_folder =  AxialAM.find_folder(PID)
+    pid_folder =  find_folder(PID)
     subfolders = filter(isdir, joinpath.(pid_folder, readdir(pid_folder)))
-    first_vector = []
-    summed_vector = []
+    first_vector = nothing
+    summed_vector = nothing
     for folder in subfolders
         file = joinpath(folder, "calculation.jld")
         if isfile(file)
             @load file muvec sijks
-            append!(first_vector, muvec)
-            append!(summed_vector, sijks)
+            if first_vector === nothing
+                first_vector = muvec
+                summed_vector = sijks
+            else
+                summed_vector .+= sijks
+            end
         end
     end
     @save calcfile first_vector summed_vector
-    cp(pid_folder * "/1/presets.jld", presfile, force = true)
+    cp(pid_folder * "/1/presets.jld", presfile)
     println("Saved summed result to $destination")
 end
 
