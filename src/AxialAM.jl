@@ -2,9 +2,9 @@ module AxialAM
     # using BZpaths
     using LinearAlgebra, StaticArrays
     using CairoMakie
-    using SymScan
+    # using SymScan
     using Revise, Parameters
-    using BZpaths
+    # using BZpaths
     # using Brillouin
     using Crystalline
     using PhysicalConstants
