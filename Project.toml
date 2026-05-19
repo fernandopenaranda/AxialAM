@@ -4,6 +4,7 @@ authors = ["Fernando Peñaranda"]
 version = "1.0.0-DEV"
 
 [deps]
+BZpaths = "f8cfb5e1-ca40-4b8f-9b88-500575390b6d"
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 Crystalline = "ae5e2be0-a263-11e9-351e-f94dad1eb351"
 FilePathsBase = "48062228-2e41-5def-b9a4-89aafe57970f"
@@ -17,6 +18,7 @@ Quantica = "ae5ea0c6-3f5e-46a2-bc28-a7c4c7a4773c"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 Serialization = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+SymScan = "4bc7581b-18d6-4347-acfd-0557fa3a92d1"
 
 [compat]
 julia = "1.9"
