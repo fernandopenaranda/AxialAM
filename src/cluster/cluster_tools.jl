@@ -36,7 +36,7 @@ end
 
 processing(PID::Number) = processing(string(PID))
 function processing(PID::String)
-    destination =  homedir() * "/Projects/AxialAM/" * PID 
+    destination =  homedir() * "/Projects/AxialAM/Data/" * PID 
     calcfile = destination * "_merged_calculation.jld"
     presfile = destination * "_merged_presets.jld"
     pid_folder =  find_folder(PID)
