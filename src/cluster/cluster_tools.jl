@@ -34,28 +34,34 @@ function find_folder(target::AbstractString)
     return nothing
 end
 
-processing(PID::Number) = processing(string(PID))
+processingprocessing(PID::Number) = processing(string(PID))
 function processing(PID::String)
     destination =  homedir() * "/Projects/AxialAM/" * PID 
     calcfile = destination * "_merged_calculation.jld"
     presfile = destination * "_merged_presets.jld"
-    pid_folder =  find_folder(PID)
+    pid_folder =  AxialAM.find_folder(PID)
     subfolders = filter(isdir, joinpath.(pid_folder, readdir(pid_folder)))
-    first_vector = nothing
-    summed_vector = nothing
+    first_vector = []
+    summed_vector = []
     for folder in subfolders
         file = joinpath(folder, "calculation.jld")
         if isfile(file)
             @load file muvec sijks
-            if first_vector === nothing
-                first_vector = muvec
-                summed_vector = sijks
-            else
-                summed_vector .+= sijks
-            end
+            append!(first_vector, muvec)
+            append!(summed_vector, sijks)
         end
     end
     @save calcfile first_vector summed_vector
-    cp(pid_folder * "/1/presets.jld", presfile)
+    cp(pid_folder * "/1/presets.jld", presfile, force = true)
     println("Saved summed result to $destination")
+end
+
+load_data(PID::Number) = load_data(string(PID))
+function load_data(PID::String)
+    data_path = dirname(dirname(pathof(AxialAM))) * "/prelimintar_data/AxialAM"
+    file = data_path * "/" * PID * "_merged_calculation.jld"
+    filepresets = data_path * "/" * PID * "_merged_presets.jld"
+    @load file first_vector summed_vector
+    @load filepresets sijk_pres
+    return sijk_pres, first_vector, summed_vector 
 end
